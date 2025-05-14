@@ -26,4 +26,7 @@
 参考各ipynb版本即可
 3. web介绍
 主要功能如视频演示，模型具备记忆与联网查询功能，启动时参考web文件夹下的readme.md：
-<video controls src="web端演示-1.MP4" title="Title"></video>
+
+
+https://github.com/user-attachments/assets/8edcd70c-751f-4c32-b96e-79d99fe81e61
+
