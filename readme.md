@@ -40,3 +40,4 @@ https://github.com/user-attachments/assets/8edcd70c-751f-4c32-b96e-79d99fe81e61
 
 https://github.com/user-attachments/assets/b1e1cb08-7af4-4f2d-9ff8-966b64653b08
 
+5. 多智能体功能，主要由一个监督者分配任务，然后调用不同智能体执行不同任务，具体参考“多代理监督.py”脚本，后续将更新web端与多轮对话版本。
