@@ -50,5 +50,34 @@ https://github.com/user-attachments/assets/b1e1cb08-7af4-4f2d-9ff8-966b64653b08
 
 6. 问数功能，目前做的知识库查询，没接入数据库，理论上接入数据库才是正确的，主要流程如下：
 ![alt text](img/RAG流程图.png)
+langgrapyh流程如下
+```mermaid
+graph TD
+    %% 开始节点
+    START((开始)) --> intent_classifier_node{意图分类}
+
+    %% 意图分类后的分支
+    intent_classifier_node -- "信息不足 (ask)" --> followup[生成追问问题]
+    intent_classifier_node -- "可以检索 (retrieve)" --> retrieve{检索并评估质量}
+
+    %% 检索后的分支
+    retrieve -- "有答案 (generate)" --> generate[生成最终回答]
+    retrieve -- "无答案 (fallback)" --> fallback[兜底回复]
+
+    %% 状态结束的区分
+    generate --> END((流程结束))
+    fallback --> END
+    
+    %% 追问的特殊循环逻辑
+    followup --> WAIT[/等待用户补充信息/]
+    WAIT -. "用户输入" .-> START
+
+    %% 样式美化
+    style START fill:#f9f,stroke:#333
+    style END fill:#f9f,stroke:#333
+    style WAIT fill:#fff,stroke:#01579b,stroke-dasharray: 5 5
+    style intent_classifier_node fill:#fff4dd,stroke:#d4a017
+    style retrieve fill:#fff4dd,stroke:#d4a017
+```
 结果如下：
 ![alt text](img/RAG结果图.png)
